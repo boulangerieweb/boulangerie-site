@@ -170,31 +170,43 @@ body {
     font-size: 1.2rem;
 }
 
-.horaires-card {
-    max-width: 400px;
+.horaire-table {
+    width: 80%;
     margin: 20px auto;
-    background: var(--fond);
-    border-radius: 14px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    border-collapse: collapse;
+    font-size: 1.1rem;
+    background: #fff4e6; /* fond crème gourmand */
+    border-radius: 16px;
     overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    text-align: left;
 }
-.horaires-card .jour {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 20px;
-    border-bottom: 1px solid var(--gris);
+
+.horaire-table td {
+    padding: 14px 24px;
+    border-bottom: 1px solid #f0d9c0; /* séparateur doux */
     font-weight: 600;
-    font-size: 1rem;
-    transition: 0.3s;
+    color: #5a3e2b; /* brun gourmand */
 }
-.horaires-card .jour:last-child {
+
+.horaire-table tr:last-child td {
     border-bottom: none;
 }
-.horaires-card .jour:hover {
-    background: var(--accent-light, #f8e7e1);
-    color: var(--accent-dark);
+
+.horaire-table tr:hover {
+    background: #f7e1d4; /* couleur hover subtile */
     cursor: default;
 }
+
+.horaire-table td:first-child {
+    font-size: 1rem;
+}
+
+.horaire-table td:last-child {
+    font-size: 1rem;
+    text-align: right;
+}
+
 
 
 /* Formulaire */
