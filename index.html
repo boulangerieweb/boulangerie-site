@@ -6,45 +6,126 @@
 <title>Boulangerie Nom Ici</title>
 <link rel="stylesheet" href="style.css">
 <style>
-body, html { margin:0; padding:0; font-family:'Inter',sans-serif; background:#faf7f2; color:#2b2b2b; }
+:root {
+    --accent: #c89f65;
+    --accent-dark: #a47f4f;
+    --fond: #faf7f2;
+    --texte: #2b2b2b;
+    --gris: #e5e1db;
+}
+
+/* ======= Base ======= */
+body { margin:0; font-family:'Inter',sans-serif; background:var(--fond); color:var(--texte); scroll-behavior:smooth; }
 a { text-decoration:none; color:inherit; }
-.hero { display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:100px 20px; background:#c89f65; color:white; }
+
+/* ======= Header minimal ======= */
+.hero {
+    background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("images/banner.jpg") center/cover no-repeat;
+    padding:120px 20px;
+    text-align:center;
+    color:white;
+}
 #logo { width:120px; border-radius:50%; margin-bottom:20px; box-shadow:0 6px 16px rgba(0,0,0,0.4); }
-.menu-btn { position:fixed; top:20px; left:20px; z-index:1000; background:#c89f65; color:white; border:none; padding:12px 18px; border-radius:6px; font-weight:bold; cursor:pointer; }
-.menu { position:fixed; top:0; left:-250px; width:250px; height:100%; background:white; box-shadow:2px 0 12px rgba(0,0,0,0.2); transition:0.3s; padding-top:60px; display:flex; flex-direction:column; }
-.menu a { padding:15px 20px; border-bottom:1px solid #e5e1db; color:#2b2b2b; font-weight:600; }
+
+/* ======= Hamburger ======= */
+.hamburger {
+    position:fixed;
+    top:20px;
+    left:20px;
+    z-index:1000;
+    width:30px;
+    height:22px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    cursor:pointer;
+}
+.hamburger div {
+    height:4px;
+    background:var(--accent);
+    border-radius:2px;
+    transition:0.3s;
+}
+
+/* ======= Menu coulissant ======= */
+.menu {
+    position:fixed;
+    top:0;
+    left:-260px;
+    width:260px;
+    height:100%;
+    background:white;
+    box-shadow:2px 0 12px rgba(0,0,0,0.2);
+    transition:0.4s;
+    padding-top:60px;
+    display:flex;
+    flex-direction:column;
+}
+.menu a {
+    padding:15px 20px;
+    border-bottom:1px solid var(--gris);
+    color:var(--texte);
+    font-weight:600;
+    transition:0.3s;
+}
+.menu a:hover { color:var(--accent); }
 .menu.open { left:0; }
+
+/* ======= Sections ======= */
 .section { max-width:1100px; margin:70px auto; padding:0 20px; }
-.section h2 { text-align:center; color:#c89f65; font-size:2rem; margin-bottom:30px; }
-.produits { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; }
-.carte-produit { background:white; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.1); padding:15px; text-align:center; transition:0.3s; }
-.carte-produit:hover { transform:translateY(-6px); box-shadow:0 6px 20px rgba(0,0,0,0.12); }
-.carte-produit img { width:100%; height:160px; object-fit:cover; border-radius:10px; margin-bottom:10px; }
-.carte-produit h3 { color:#c89f65; margin:10px 0 5px; }
-.carte-produit p { font-size:0.95rem; line-height:1.4; }
-.prix { font-weight:700; color:#a47f4f; font-size:1.2rem; display:block; margin-top:8px; }
+.section h2 { text-align:center; color:var(--accent); font-size:2.3rem; margin-bottom:40px; }
+
+/* ======= Produits cartes ======= */
+.produits { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:30px; }
+.carte-produit {
+    padding:20px;
+    background:white;
+    border-radius:14px;
+    box-shadow:0 4px 14px rgba(0,0,0,0.1);
+    transition:0.4s;
+    text-align:center;
+}
+.carte-produit:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 8px 24px rgba(0,0,0,0.15); }
+.carte-produit img { width:100%; border-radius:14px; height:170px; object-fit:cover; margin-bottom:10px; }
+.carte-produit h3 { margin:10px 0 5px; color:var(--accent); }
+.carte-produit p { font-size:1rem; line-height:1.5; }
+.prix { display:inline-block; margin-top:10px; font-weight:700; color:var(--accent-dark); font-size:1.2rem; }
+
+/* ======= Formulaire ======= */
 form { display:flex; flex-direction:column; gap:12px; max-width:500px; margin:auto; }
 form input, form textarea { padding:10px; border-radius:6px; border:1px solid #ccc; font-size:1rem; }
-form button { padding:12px; background:#c89f65; color:white; font-weight:bold; border:none; border-radius:6px; cursor:pointer; }
-form button:hover { background:#a47f4f; }
+form button { padding:12px; background:var(--accent); color:white; font-weight:bold; border:none; border-radius:6px; cursor:pointer; transition:0.3s; }
+form button:hover { background:var(--accent-dark); }
+
+/* ======= WhatsApp ======= */
 .whatsapp { position:fixed; bottom:25px; right:25px; background:#25d366; padding:14px 22px; border-radius:40px; color:white; font-weight:bold; box-shadow:0 4px 20px rgba(0,0,0,0.3); }
-footer { text-align:center; padding:30px; background:#e5e1db; font-weight:600; margin-top:50px; }
+.whatsapp:hover { transform:scale(1.08); }
+
+/* ======= Footer ======= */
+footer { text-align:center; padding:40px; background:var(--gris); font-weight:600; margin-top:60px; }
+
+/* ======= Responsive ======= */
+@media(max-width:600px){ .hero { padding:80px 10px; } .produits { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
 
-<!-- Header -->
+<!-- Header minimal -->
 <header class="hero">
-  <div class="hero-content">
     <img id="logo" src="images/logo.jpg" alt="Logo">
-    <h1>Nom de la Boulangerie Ici</h1>
-    <p>Slogan ou courte description ici</p>
+    <h1>Nom de la Boulangerie</h1>
+    <p>Slogan ou description courte ici</p>
     <p>Adresse : À compléter</p>
-  </div>
 </header>
 
-<!-- Menu Burger -->
-<button class="menu-btn" onclick="toggleMenu()">Menu</button>
+<!-- Hamburger avec 3 barres -->
+<div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<!-- Menu coulissant -->
 <nav class="menu" id="menu">
   <a href="#pains">Pains</a>
   <a href="#viennoiseries">Viennoiseries</a>
@@ -56,82 +137,29 @@ footer { text-align:center; padding:30px; background:#e5e1db; font-weight:600; m
   <a href="#infos">Informations</a>
 </nav>
 
-<!-- Sections Produits -->
+<!-- Sections (zones à compléter) -->
 <section id="pains" class="section">
   <h2>Pains</h2>
   <div class="produits">
     <div class="carte-produit">
-      <img src="images/pain1.jpg" alt="Nom du pain 1">
-      <h3>Nom du pain 1</h3>
-      <p>Description du pain 1…</p>
-      <span class="prix">Prix ici</span>
-    </div>
-    <div class="carte-produit">
-      <img src="images/pain2.jpg" alt="Nom du pain 2">
-      <h3>Nom du pain 2</h3>
-      <p>Description du pain 2…</p>
+      <img src="images/pain1.jpg" alt="Nom du pain">
+      <h3>Nom du pain</h3>
+      <p>Description du pain…</p>
       <span class="prix">Prix ici</span>
     </div>
   </div>
 </section>
 
-<section id="viennoiseries" class="section">
-  <h2>Viennoiseries</h2>
-  <div class="produits">
-    <div class="carte-produit">
-      <img src="images/croissant.jpg" alt="Nom du produit">
-      <h3>Nom du produit</h3>
-      <p>Description…</p>
-      <span class="prix">Prix ici</span>
-    </div>
-  </div>
-</section>
-
-<section id="patisseries" class="section">
-  <h2>Pâtisseries</h2>
-  <div class="produits">
-    <div class="carte-produit">
-      <img src="images/eclair.jpg" alt="Nom du produit">
-      <h3>Nom du produit</h3>
-      <p>Description…</p>
-      <span class="prix">Prix ici</span>
-    </div>
-  </div>
-</section>
-
-<section id="boissons" class="section">
-  <h2>Boissons</h2>
-  <div class="produits">
-    <div class="carte-produit">
-      <h3>Nom du produit</h3>
-      <span class="prix">Prix ici</span>
-    </div>
-  </div>
-</section>
-
-<section id="traiteur" class="section">
-  <h2>Traiteur</h2>
-  <p>Description du service traiteur…</p>
-</section>
-
-<!-- Horaires (à compléter toi-même) -->
-<section id="horaires" class="section">
-  <h2>Horaires</h2>
-  <p>À compléter…</p>
-</section>
-
-<!-- Formulaire Commande -->
 <section id="commande" class="section">
   <h2>Passer une commande</h2>
   <form>
     <input type="text" placeholder="Votre nom" required>
     <input type="text" placeholder="Votre numéro" required>
-    <textarea placeholder="Votre commande (produits, quantités…)" required></textarea>
+    <textarea placeholder="Votre commande…" required></textarea>
     <button type="submit">Envoyer</button>
   </form>
 </section>
 
-<!-- Informations -->
 <section id="infos" class="section">
   <h2>Informations</h2>
   <p>Adresse : À compléter<br>Téléphone : À compléter<br>Email : À compléter</p>
@@ -143,10 +171,11 @@ footer { text-align:center; padding:30px; background:#e5e1db; font-weight:600; m
 
 <script>
 function toggleMenu(){
-  document.getElementById('menu').classList.toggle('open');
+    document.getElementById('menu').classList.toggle('open');
 }
 </script>
 
 </body>
 </html>
+
 
