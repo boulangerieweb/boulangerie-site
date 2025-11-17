@@ -3,201 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nom de la Boulangerie</title>
-<style>
-:root {
-    --accent:#c89f65;
-    --accent-dark:#a47f4f;
-    --fond:#faf7f2;
-    --texte:#2b2b2b;
-    --gris:#e5e1db;
-}
-
-/* ======= Base ======= */
-body{margin:0;font-family:'Inter',sans-serif;background:var(--fond);color:var(--texte);scroll-behavior:smooth;}
-a{text-decoration:none;color:inherit;}
-
-/* ======= Header minimal ======= */
-.hero{
-    background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("images/banner.jpg") center/cover no-repeat;
-    padding:120px 20px;text-align:center;color:white;
-}
-#logo{width:120px;border-radius:50%;margin-bottom:20px;box-shadow:0 6px 16px rgba(0,0,0,0.4);}
-
-/* ======= Hamburger ======= */
-.hamburger{
-    position:fixed;top:20px;left:20px;z-index:1000;width:30px;height:22px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;
-}
-.hamburger div{height:4px;background:var(--accent);border-radius:2px;transition:0.3s;}
-
-/* ======= Menu coulissant ======= */
-.menu{
-    position:fixed;top:0;left:-260px;width:260px;height:100%;background:white;
-    box-shadow:2px 0 12px rgba(0,0,0,0.2);transition:0.4s;padding-top:60px;display:flex;flex-direction:column;
-}
-.menu a{
-    padding:15px 20px;border-bottom:1px solid var(--gris);color:var(--texte);font-weight:600;transition:0.3s;
-}
-.menu a:hover{color:var(--accent);}
-.menu.open{left:0;}
-
-/* ======= Sections ======= */
-.section{max-width:1100px;margin:70px auto;padding:0 20px;display:none;}
-.section h2{text-align:center;color:var(--accent);font-size:2.3rem;margin-bottom:40px;}
-
-/* ======= Produits cartes ======= */
-.produits{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;}
-.carte-produit{padding:20px;background:white;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,0.1);transition:0.4s;text-align:center;}
-.carte-produit:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 8px 24px rgba(0,0,0,0.15);}
-.carte-produit img{width:100%;border-radius:14px;height:170px;object-fit:cover;margin-bottom:10px;}
-.carte-produit h3{margin:10px 0 5px;color:var(--accent);}
-.carte-produit p{font-size:1rem;line-height:1.5;}
-.prix{display:inline-block;margin-top:10px;font-weight:700;color:var(--accent-dark);font-size:1.2rem;}
-
-/* ======= Formulaire ======= */
-form{display:flex;flex-direction:column;gap:12px;max-width:500px;margin:auto;}
-form input, form textarea{padding:10px;border-radius:6px;border:1px solid #ccc;font-size:1rem;}
-form button{padding:12px;background:var(--accent);color:white;font-weight:bold;border:none;border-radius:6px;cursor:pointer;transition:0.3s;}
-form button:hover{background:var(--accent-dark);}
-
-/* ======= WhatsApp ======= */
-.whatsapp{position:fixed;bottom:25px;right:25px;background:#25d366;padding:14px 22px;border-radius:40px;color:white;font-weight:bold;box-shadow:0 4px 20px rgba(0,0,0,0.3);}
-.whatsapp:hover{transform:scale(1.08);}
-
-/* ======= Footer ======= */
-footer{text-align:center;padding:40px;background:var(--gris);font-weight:600;margin-top:60px;}
-
-/* ======= Responsive ======= */
-@media(max-width:600px){ .hero { padding:80px 10px; } .produits { grid-template-columns:1fr; } }
-</style>
+<title>Boulangerie — À REMPLACER</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Header minimal -->
-<header class="hero">
+<!-- Header principal -->
+<div class="hero fade-in">
     <img id="logo" src="images/logo.jpg" alt="Logo">
-    <h1>Nom de la Boulangerie</h1>
-    <p>Slogan ou description courte ici</p>
-    <p>Adresse : À compléter</p>
-</header>
-
-<!-- Hamburger -->
-<div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
+    <h1>Boulangerie À REMPLACER</h1>
+    <p>Slogan ou petite description ici</p>
+    <p>Adresse / Téléphone / Email ou autres infos</p>
 </div>
 
-<!-- Menu coulissant -->
-<nav class="menu" id="menu">
-  <a href="#pains" onclick="showSection('pains')">Pains</a>
-  <a href="#viennoiseries" onclick="showSection('viennoiseries')">Viennoiseries</a>
-  <a href="#patisseries" onclick="showSection('patisseries')">Pâtisseries</a>
-  <a href="#boissons" onclick="showSection('boissons')">Boissons</a>
-  <a href="#traiteur" onclick="showSection('traiteur')">Traiteur</a>
-  <a href="#horaires" onclick="showSection('horaires')">Horaires</a>
-  <a href="#commande" onclick="showSection('commande')">Commander</a>
-  <a href="#infos" onclick="showSection('infos')">Informations</a>
-</nav>
+<!-- Hamburger + Menu -->
+<div class="hamburger">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
 
-<!-- Sections cachées -->
-<section id="pains" class="section">
-  <h2>Pains</h2>
-  <div class="produits">
-    <div class="carte-produit">
-      <img src="images/pain1.jpg" alt="Nom du pain">
-      <h3>Nom du pain</h3>
-      <p>Description du pain…</p>
-      <span class="prix">Prix ici</span>
+<div class="menu">
+  <a data-target="accueil">Accueil</a>
+  <a data-target="pains">Pains</a>
+  <a data-target="viennoiseries">Viennoiseries</a>
+  <a data-target="patisseries">Pâtisseries</a>
+  <a data-target="boissons">Boissons</a>
+  <a data-target="traiteur">Traiteur</a>
+  <a data-target="horaire">Horaires</a>
+  <a data-target="commande">Commander</a>
+  <a data-target="information">Informations</a>
+</div>
+
+<!-- Sections cachées par défaut -->
+<section id="pains" class="section fade-in">
+    <h2>Pains</h2>
+    <div class="produits">
+        <div class="carte-produit">
+            <img src="images/pain1.jpg" alt="Pain 1">
+            <h3>Pain 1</h3>
+            <p>Description à remplir</p>
+            <span class="prix">Prix €</span>
+        </div>
+        <div class="carte-produit">
+            <img src="images/pain2.jpg" alt="Pain 2">
+            <h3>Pain 2</h3>
+            <p>Description à remplir</p>
+            <span class="prix">Prix €</span>
+        </div>
     </div>
-    <!-- Ajouter d'autres produits ici -->
-  </div>
 </section>
 
-<section id="viennoiseries" class="section">
-  <h2>Viennoiseries</h2>
-  <div class="produits">
-    <div class="carte-produit">
-      <img src="images/croissant.jpg" alt="Croissant">
-      <h3>Croissant</h3>
-      <p>Description…</p>
-      <span class="prix">Prix</span>
+<section id="viennoiseries" class="section fade-in">
+    <h2>Viennoiseries</h2>
+    <div class="produits">
+        <div class="carte-produit">
+            <img src="images/croissant.jpg" alt="Croissant">
+            <h3>Croissant</h3>
+            <p>Description à remplir</p>
+            <span class="prix">Prix €</span>
+        </div>
     </div>
-  </div>
 </section>
 
-<section id="patisseries" class="section">
-  <h2>Pâtisseries</h2>
-  <div class="produits">
-    <div class="carte-produit">
-      <img src="images/eclair.jpg" alt="Éclair">
-      <h3>Éclair</h3>
-      <p>Description…</p>
-      <span class="prix">Prix</span>
+<section id="patisseries" class="section fade-in">
+    <h2>Pâtisseries</h2>
+    <div class="produits">
+        <div class="carte-produit">
+            <img src="images/eclair.jpg" alt="Éclair">
+            <h3>Éclair</h3>
+            <p>Description à remplir</p>
+            <span class="prix">Prix €</span>
+        </div>
     </div>
-  </div>
 </section>
 
-<section id="boissons" class="section">
-  <h2>Boissons</h2>
-  <div class="produits">
-    <div class="carte-produit">
-      <img src="images/boisson1.jpg" alt="Boisson">
-      <h3>Nom Boisson</h3>
-      <p>Description…</p>
-      <span class="prix">Prix</span>
+<section id="boissons" class="section fade-in">
+    <h2>Boissons</h2>
+    <div class="produits">
+        <div class="carte-produit">
+            <img src="images/boisson1.jpg" alt="Boisson 1">
+            <h3>Boisson 1</h3>
+            <p>Description à remplir</p>
+            <span class="prix">Prix €</span>
+        </div>
     </div>
-  </div>
 </section>
 
-<section id="traiteur" class="section">
-  <h2>Traiteur</h2>
-  <div class="produits">
-    <div class="carte-produit">
-      <img src="images/traiteur1.jpg" alt="Traiteur">
-      <h3>Nom Traiteur</h3>
-      <p>Description…</p>
-      <span class="prix">Prix</span>
+<section id="traiteur" class="section fade-in">
+    <h2>Traiteur</h2>
+    <div class="produits">
+        <div class="carte-produit">
+            <img src="images/traiteur1.jpg" alt="Traiteur 1">
+            <h3>Traiteur 1</h3>
+            <p>Description à remplir</p>
+            <span class="prix">Prix €</span>
+        </div>
     </div>
-  </div>
 </section>
 
-<section id="horaires" class="section">
-  <h2>Horaires</h2>
-  <p>Lundi - Vendredi : À compléter<br>Samedi : À compléter<br>Dimanche : À compléter</p>
+<section id="horaire" class="section fade-in">
+    <h2>Horaires</h2>
+    <p>Remplis tes horaires ici</p>
 </section>
 
-<section id="commande" class="section">
-  <h2>Passer une commande</h2>
-  <form>
-    <input type="text" placeholder="Votre nom" required>
-    <input type="text" placeholder="Votre numéro" required>
-    <textarea placeholder="Votre commande…" required></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
+<section id="commande" class="section fade-in">
+    <h2>Passer une commande</h2>
+    <form>
+        <input type="text" placeholder="Votre nom" required>
+        <input type="text" placeholder="Votre numéro" required>
+        <textarea placeholder="Votre commande (pains, quantités...)" required></textarea>
+        <button type="submit">Envoyer</button>
+    </form>
 </section>
 
-<section id="infos" class="section">
-  <h2>Informations</h2>
-  <p>Adresse : À compléter<br>Téléphone : À compléter<br>Email : À compléter</p>
+<section id="information" class="section fade-in">
+    <h2>Informations</h2>
+    <p>Adresse : ...</p>
+    <p>Téléphone : ...</p>
+    <p>Email : ...</p>
+    <p>Autres informations utiles : ...</p>
 </section>
 
+<!-- WhatsApp -->
 <a class="whatsapp" href="https://wa.me/NUMERO" target="_blank">Commander sur WhatsApp</a>
-<footer>© 2025 — Nom de la Boulangerie</footer>
 
-<script>
-function toggleMenu(){
-    document.getElementById('menu').classList.toggle('open');
-}
-function showSection(id){
-    document.querySelectorAll('.section').forEach(s => s.style.display='none'); // cache toutes
-    document.getElementById(id).style.display='block'; // affiche la section cliquée
-    document.getElementById('menu').classList.remove('open'); // ferme le menu
-}
-</script>
+<!-- Footer -->
+<footer>
+    © 2025 — Boulangerie À REMPLACER
+</footer>
 
+<script src="script.js"></script>
 </body>
 </html>
+
 
 
 
