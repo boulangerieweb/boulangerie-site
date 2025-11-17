@@ -1,9 +1,9 @@
 :root {
-    --accent: #FF6B6B;
-    --accent-dark: #D64545;
-    --fond: #FFFFFF;
-    --texte: #1C1C1C;
-    --gris: #E0E0E0;
+    --accent: #A5694F;      /* brun chocolat */
+    --accent-dark: #7A4B36; /* brun foncé */
+    --fond: #FDF6F0;        /* crème clair */
+    --texte: #2C2C2C;       /* gris foncé */
+    --gris: #E5E5E5;        /* gris clair pour bordures/ombres */
 }
 
 body {
@@ -26,10 +26,8 @@ body {
 
 /* Header minimal */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.15)), url("images/banner.jpg") center/cover no-repeat;
     padding: 120px 20px;
     text-align: center;
-    color: var(--texte);
 }
 #logo {
     width: 120px;
@@ -78,6 +76,7 @@ body {
     color: var(--texte);
     font-weight: 600;
     transition: 0.3s;
+    cursor: pointer;
 }
 .menu a:hover {
     color: var(--accent);
@@ -199,6 +198,7 @@ footer {
     .hero { padding: 80px 10px; }
     .produits { grid-template-columns: 1fr; }
 }
+
 
 
 
