@@ -170,6 +170,33 @@ body {
     font-size: 1.2rem;
 }
 
+.horaires-card {
+    max-width: 400px;
+    margin: 20px auto;
+    background: var(--fond);
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    overflow: hidden;
+}
+.horaires-card .jour {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--gris);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+.horaires-card .jour:last-child {
+    border-bottom: none;
+}
+.horaires-card .jour:hover {
+    background: var(--accent-light, #f8e7e1);
+    color: var(--accent-dark);
+    cursor: default;
+}
+
+
 /* Formulaire */
 form {
     display: flex;
