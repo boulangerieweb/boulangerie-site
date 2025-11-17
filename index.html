@@ -66,6 +66,9 @@ form button:hover{background:var(--accent-dark);}
 
 /* ======= Footer ======= */
 footer{text-align:center;padding:40px;background:var(--gris);font-weight:600;margin-top:60px;}
+
+/* ======= Responsive ======= */
+@media(max-width:600px){ .hero { padding:80px 10px; } .produits { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -97,7 +100,7 @@ footer{text-align:center;padding:40px;background:var(--gris);font-weight:600;mar
   <a href="#infos" onclick="showSection('infos')">Informations</a>
 </nav>
 
-<!-- Sections (cachées au départ) -->
+<!-- Sections cachées -->
 <section id="pains" class="section">
   <h2>Pains</h2>
   <div class="produits">
@@ -107,6 +110,7 @@ footer{text-align:center;padding:40px;background:var(--gris);font-weight:600;mar
       <p>Description du pain…</p>
       <span class="prix">Prix ici</span>
     </div>
+    <!-- Ajouter d'autres produits ici -->
   </div>
 </section>
 
@@ -120,6 +124,47 @@ footer{text-align:center;padding:40px;background:var(--gris);font-weight:600;mar
       <span class="prix">Prix</span>
     </div>
   </div>
+</section>
+
+<section id="patisseries" class="section">
+  <h2>Pâtisseries</h2>
+  <div class="produits">
+    <div class="carte-produit">
+      <img src="images/eclair.jpg" alt="Éclair">
+      <h3>Éclair</h3>
+      <p>Description…</p>
+      <span class="prix">Prix</span>
+    </div>
+  </div>
+</section>
+
+<section id="boissons" class="section">
+  <h2>Boissons</h2>
+  <div class="produits">
+    <div class="carte-produit">
+      <img src="images/boisson1.jpg" alt="Boisson">
+      <h3>Nom Boisson</h3>
+      <p>Description…</p>
+      <span class="prix">Prix</span>
+    </div>
+  </div>
+</section>
+
+<section id="traiteur" class="section">
+  <h2>Traiteur</h2>
+  <div class="produits">
+    <div class="carte-produit">
+      <img src="images/traiteur1.jpg" alt="Traiteur">
+      <h3>Nom Traiteur</h3>
+      <p>Description…</p>
+      <span class="prix">Prix</span>
+    </div>
+  </div>
+</section>
+
+<section id="horaires" class="section">
+  <h2>Horaires</h2>
+  <p>Lundi - Vendredi : À compléter<br>Samedi : À compléter<br>Dimanche : À compléter</p>
 </section>
 
 <section id="commande" class="section">
@@ -138,7 +183,6 @@ footer{text-align:center;padding:40px;background:var(--gris);font-weight:600;mar
 </section>
 
 <a class="whatsapp" href="https://wa.me/NUMERO" target="_blank">Commander sur WhatsApp</a>
-
 <footer>© 2025 — Nom de la Boulangerie</footer>
 
 <script>
@@ -146,14 +190,15 @@ function toggleMenu(){
     document.getElementById('menu').classList.toggle('open');
 }
 function showSection(id){
-    document.querySelectorAll('.section').forEach(s => s.style.display='none');
-    document.getElementById(id).style.display='block';
-    document.getElementById('menu').classList.remove('open');
+    document.querySelectorAll('.section').forEach(s => s.style.display='none'); // cache toutes
+    document.getElementById(id).style.display='block'; // affiche la section cliquée
+    document.getElementById('menu').classList.remove('open'); // ferme le menu
 }
 </script>
 
 </body>
 </html>
+
 
 
 
